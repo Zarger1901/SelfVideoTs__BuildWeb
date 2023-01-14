@@ -1,8 +1,8 @@
 module.exports = {
     apps: [
         {
-            name: 'Self__VideoWeb',
-            script: './server.js',
+            name: 'VideoServer',
+            script: './build/server.js',
             instances: 'max',
             exec_mode: 'cluster',
             autorestart: true,

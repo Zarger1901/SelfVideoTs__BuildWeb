@@ -45,6 +45,10 @@
     {
       "pattern": ".gitignore",
       "reloadServer": false
+    },
+    {
+      "pattern": "ecosystem.config.js",
+      "reloadServer": false
     }
   ],
   "aceProviders": [
@@ -64,5 +68,5 @@
   "testProviders": [
     "@japa/preset-adonis/TestsProvider"
   ],
-  "lastCompiledAt": "2023-01-13T17:57:32.646Z"
+  "lastCompiledAt": "2023-01-14T09:35:46.770Z"
 }
