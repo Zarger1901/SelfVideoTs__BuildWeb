@@ -35,6 +35,10 @@
       "reloadServer": false
     },
     {
+      "pattern": "resources/images/**",
+      "reloadServer": false
+    },
+    {
       "pattern": "ssl/*",
       "reloadServer": false
     },
@@ -68,5 +72,5 @@
   "testProviders": [
     "@japa/preset-adonis/TestsProvider"
   ],
-  "lastCompiledAt": "2023-01-16T05:21:06.012Z"
+  "lastCompiledAt": "2023-01-20T17:10:50.568Z"
 }
