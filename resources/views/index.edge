@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+    <title>Yousise</title>
+    <link rel="shortcut icon" class="head_icon"
+        href="{{ asset('assets/images/AppIcon.appiconset/yousise__icon.png') }}">
+    <meta name="description"
+        content="Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on Yousise. If you like this website, you may also recommend it to your friends. ">
+    <meta name="keywords"
+        content="live, blog, content, knowlege, interesting, amusing, emotion, video, sharing, camera phone, video phone, free, upload">
+    @entryPointStyles('app')
+    @entryPointScripts('app')
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <ul class="__logoInner">
+                <li class="JumpToIndexPage">
+                    <i class="logoTextIcon"></i>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div style="color: #900; float: left; width: 100%; clear: both;">
+            <div>
+                @each(user in users)
+                <p><a href="{{ user.url }}" target="_blank" style="color: #333">{{ user.name }}</a></p>
+                @endeach
+            </div>
+        </div>
+        <div class="clr"></div>
+        {{ (Math.ceil(users.currentPage / users.perPage)) * 15 - users.perPage + 1 }}
+        <nav aria-label="Page navigation">
+            
+            <ul class="pagination pagination-sm">
+                <li class="page-item">
+                    <a class="page-link {{ users.currentPage === 1 ? 'disabled' : '' }}" href="{{ users.getPreviousPageUrl() }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                
+                @each(anchor in users.getUrlsForRange((Math.ceil(users.currentPage / users.perPage)) * 15 - users.perPage + 1, users.perPage * Math.ceil(users.currentPage / users.perPage) > users.lastPage ? users.lastPage : users.perPage * Math.ceil(users.currentPage / users.perPage)))
+                <li class="page-item {{ anchor.isActive ? 'active' : '' }}"><a class="page-link" href="{{ anchor.url }}">{{ anchor.page }}</a></li>
+                @endeach
+                <li class="page-item">
+                    <a class="page-link {{ users.currentPage === users.lastPage ? 'disabled' : '' }}" href="{{ users.getNextPageUrl()}}" aria-label="Next" >
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>
