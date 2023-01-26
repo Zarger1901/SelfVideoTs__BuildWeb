@@ -1,76 +1,75 @@
 {
-  "typescript": false,
-  "commands": [
-    "./commands",
-    "@adonisjs/core/build/commands/index.js",
-    "@adonisjs/repl/build/commands",
-    "@adonisjs/lucid/build/commands"
-  ],
-  "exceptionHandlerNamespace": "App/Exceptions/Handler",
-  "aliases": {
-    "App": "app",
-    "Config": "config",
-    "Database": "database",
-    "Contracts": "contracts"
-  },
-  "preloads": [
-    "./start/routes",
-    "./start/kernel"
-  ],
-  "providers": [
-    "./providers/AppProvider",
-    "@adonisjs/core",
-    "@adonisjs/session",
-    "@adonisjs/view",
-    "@adonisjs/shield",
-    "@adonisjs/lucid"
-  ],
-  "metaFiles": [
-    {
-      "pattern": "public/**",
-      "reloadServer": false
+    "typescript": true,
+    "commands": [
+        "./commands",
+        "@adonisjs/core/build/commands/index.js",
+        "@adonisjs/repl/build/commands",
+        "@adonisjs/lucid/build/commands"
+    ],
+    "exceptionHandlerNamespace": "App/Exceptions/Handler",
+    "aliases": {
+        "App": "app",
+        "Config": "config",
+        "Database": "database",
+        "Contracts": "contracts"
     },
-    {
-      "pattern": "resources/views/**/*.edge",
-      "reloadServer": false
+    "preloads": [
+        "./start/routes",
+        "./start/kernel"
+    ],
+    "providers": [
+        "./providers/AppProvider",
+        "@adonisjs/core",
+        "@adonisjs/session",
+        "@adonisjs/view",
+        "@adonisjs/shield",
+        "@adonisjs/lucid"
+    ],
+    "metaFiles": [
+        {
+            "pattern": "public/**",
+            "reloadServer": false
+        },
+        {
+            "pattern": "resources/views/**/*.edge",
+            "reloadServer": false
+        },
+        {
+            "pattern": "resources/images/**",
+            "reloadServer": false
+        },
+        {
+            "pattern": "ssl/*",
+            "reloadServer": false
+        },
+        {
+            "pattern": ".env",
+            "reloadServer": false
+        },
+        {
+            "pattern": ".gitignore",
+            "reloadServer": false
+        },
+        {
+            "pattern": "ecosystem.config.js",
+            "reloadServer": false
+        }
+    ],
+    "aceProviders": [
+        "@adonisjs/repl"
+    ],
+    "tests": {
+        "suites": [
+            {
+                "name": "functional",
+                "files": [
+                    "tests/functional/**/*.spec(.ts|.js)"
+                ],
+                "timeout": 60000
+            }
+        ]
     },
-    {
-      "pattern": "resources/images/**",
-      "reloadServer": false
-    },
-    {
-      "pattern": "ssl/*",
-      "reloadServer": false
-    },
-    {
-      "pattern": ".env",
-      "reloadServer": false
-    },
-    {
-      "pattern": ".gitignore",
-      "reloadServer": false
-    },
-    {
-      "pattern": "ecosystem.config.js",
-      "reloadServer": false
-    }
-  ],
-  "aceProviders": [
-    "@adonisjs/repl"
-  ],
-  "tests": {
-    "suites": [
-      {
-        "name": "functional",
-        "files": [
-          "tests/functional/**/*.spec(.ts|.js)"
-        ],
-        "timeout": 60000
-      }
+    "testProviders": [
+        "@japa/preset-adonis/TestsProvider"
     ]
-  },
-  "testProviders": [
-    "@japa/preset-adonis/TestsProvider"
-  ],
-  "lastCompiledAt": "2023-01-20T17:10:50.568Z"
 }
